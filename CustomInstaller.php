@@ -39,6 +39,11 @@ class CustomInstaller extends LibraryInstaller
 
         }
 
+        $extra = $package->getExtra();
+        if (!empty($extra['installer-name'])) {
+            $vars['installer-name'] = $extra['installer-name'];
+        }
+
         return $this->templatePath($extra['custom-installer'][$type], $vars);
     }
 
